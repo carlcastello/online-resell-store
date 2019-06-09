@@ -1,12 +1,13 @@
-const styles = (props, theme) => ({
-  mainToolBar: {
-    minHeight: '50px',
+import { Theme } from '@material-ui/core/styles';
+
+const styles = (theme: Theme) => ({
+  appBar: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
-  secondaryToolBar: {
-    minHeight: '0px',
-  },
-  title: {
-    flex: 1
+  logo: {
+    flex: 1,
+    color: theme.palette.primary.main
   } 
 })
 export default styles;
