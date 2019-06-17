@@ -65,4 +65,5 @@ export default createMuiTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  spacing: 18
 });
