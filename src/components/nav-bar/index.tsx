@@ -5,17 +5,10 @@ import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 import { ShoppingCart } from '@material-ui/icons';
 
 import styles from './styles';
-import SearchBar from '../search-bar';
-
-interface OwnProps {
-  classes: {
-    appBar: string,
-    logo: string,
-  }
-}
+import { OwnProps } from './types'; 
 
 class NavBar extends Component<OwnProps> {
-  render() {
+  render(): React.ReactNode {
     const {
       classes: {
         appBar: appBarStyles,
