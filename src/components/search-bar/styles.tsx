@@ -2,39 +2,40 @@ import { Theme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export default (theme: Theme) => ({
-  search: {
-    position: 'relative' as 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+  searchBarContainer: {
+    display: 'flex',
+    width: '400px',
+    border: `1px solid ${theme.palette.primary.main}`,
+    margin: `${theme.spacing(.5)}px 0`
+  },
+  searchBar: {
+    flex: '1 100%',
+    '& .css-yk16xz-control': {
+      border: 'none',
+      boxShadow: 'none'
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
+    '& .css-1pahdxg-control:hover': {
+      border: 'none',
+      boxShadow: 'none'
+    },
+    '& .css-1pahdxg-control': {
+      border: 'none',
+      boxShadow: 'none'
     },
   },
-  // searchIcon: {
-    // width: theme.spacing(7),
-    // height: '100%',
-    // position: 'absolute',
-    // pointerEvents: 'none',
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  // },
-  // inputRoot: {
-    // color: 'inherit',
-  // },
-  // inputInput: {
-    // padding: theme.spacing(1, 1, 1, 7),
-    // transition: theme.transitions.create('width'),
-    // width: '100%',
-    // [theme.breakpoints.up('md')]: {
-    //   width: 200,
-    // },
-  // },  
+  searchBarInput: {
+    height: '100%',
+  },
+  searchIcon: {
+    background: theme.palette.primary.main,
+    fill: '#ffffff',
+    fontSize: theme.spacing(1.5),
+    padding: theme.spacing(.2),
+  },
+  searchIconContainer: {
+    height: 'inherit',
+    background: theme.palette.primary.main,
+    display: 'flex',
+    alignItems: 'center',
+  }
 });
