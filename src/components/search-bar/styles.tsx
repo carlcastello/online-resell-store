@@ -1,5 +1,4 @@
 import { Theme } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export default (theme: Theme) => ({
   searchBarContainer: {
@@ -10,17 +9,9 @@ export default (theme: Theme) => ({
   },
   searchBar: {
     flex: '1 100%',
-    '& .css-yk16xz-control': {
-      border: 'none',
-      boxShadow: 'none'
-    },
-    '& .css-1pahdxg-control:hover': {
-      border: 'none',
-      boxShadow: 'none'
-    },
-    '& .css-1pahdxg-control': {
-      border: 'none',
-      boxShadow: 'none'
+    '& .select__control': {
+      border: 'none !important',
+      boxShadow: 'none !important'
     },
   },
   searchBarInput: {
@@ -37,5 +28,5 @@ export default (theme: Theme) => ({
     background: theme.palette.primary.main,
     display: 'flex',
     alignItems: 'center',
-  }
+  },
 });

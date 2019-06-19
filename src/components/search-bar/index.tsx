@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { Component } from 'react';
 
 import Select from 'react-select';
 import { ValueType } from "react-select/lib/types";
@@ -56,6 +56,7 @@ class SearchBar extends Component<OwnProps, OwnState> {
     return(
       <div className={searchBarContainer}>
         <Select
+          classNamePrefix="select"
           className={searchBar}
           isMulti
           placeholder={placeHolder}
