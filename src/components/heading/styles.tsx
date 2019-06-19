@@ -5,9 +5,6 @@ import { HeadingSize } from './enums';
 
 const styles = (theme: Theme) => ({
   header: {
-    position: 'relative' as 'relative'
-  },
-  contentMedia: {
     height: ((props: StyleProps) => {
       switch(props.size) {
         case HeadingSize.LARGE:
@@ -19,6 +16,10 @@ const styles = (theme: Theme) => ({
           return theme.spacing(10);
       }
     }) as unknown as string,
+  },
+  contentMedia: {
+    height: '100%',
+    width: '100%',
   },
   contentText: {
     position: 'absolute' as 'absolute',
@@ -33,7 +34,8 @@ const styles = (theme: Theme) => ({
           return theme.spacing(1);
       }
     }) as unknown as string,
-    left: theme.spacing(2),
+    left: theme.spacing(3),
+    padding: 0,
     width: ((props: StyleProps) => {
       switch(props.size) {
         case HeadingSize.LARGE:
