@@ -12,6 +12,9 @@ export default createMuiTheme({
     },
   },
   typography: {
+    subtitle1: {
+      fontSize: '10px',
+    },
     h1: {
       fontFamily: [
         'Amiko',
@@ -70,6 +73,7 @@ export default createMuiTheme({
       '"Segoe UI Symbol"',
     ].join(','),
     fontSize: 12,
+
   },
   spacing: 18
 });
