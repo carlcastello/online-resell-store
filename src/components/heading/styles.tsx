@@ -5,6 +5,8 @@ import { HeadingSize } from './enums';
 
 const styles = (theme: Theme) => ({
   header: {
+    overflow: 'visible' as 'visible',
+    position: 'relative' as 'relative',
     height: ((props: StyleProps) => {
       switch(props.size) {
         case HeadingSize.LARGE:

@@ -3,7 +3,12 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export default createMuiTheme({
   palette: {
     primary: {
-      main: '#1C0C4F'
+      main: '#1C0C4F',
+      contrastText: '#ffffff'
+    },
+    secondary: {
+      main: '#ffffff',
+      contrastText: '#1C0C4F'
     },
   },
   typography: {
@@ -64,6 +69,7 @@ export default createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+    fontSize: 12,
   },
   spacing: 18
 });
