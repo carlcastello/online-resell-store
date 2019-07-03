@@ -26,6 +26,10 @@ class ProductCard extends Component<IOwnProps> {
     }
   }
 
+  handleScrollEvent = (): void => {
+    console.log(window.scrollY);
+  }
+
   renderProductDescription = (): ReactNode => {
     const {
       string: {
@@ -77,7 +81,14 @@ class ProductCard extends Component<IOwnProps> {
     );
   }
 
+  
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScrollEvent);
+  }
+
   render(): ReactNode {
+    console.log(window.scrollY)
     const {
       media: {
         image: mediaImage,
