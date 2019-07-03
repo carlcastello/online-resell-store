@@ -67,7 +67,6 @@ class Footer extends Component<IOwnProps> {
     );
   }
 
-
   render(): ReactNode {
     const {
       classes: {

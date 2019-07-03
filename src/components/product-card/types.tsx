@@ -12,7 +12,7 @@ export interface IOwnProps {
   classes: {
     cardMedia: string,
     cardContent: string,
-    sellerNameContent: string,
+    productDescription: string,
     cardAction: string,
     priceContent: string,
     addToCartButton: string,

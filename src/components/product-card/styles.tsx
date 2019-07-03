@@ -8,14 +8,16 @@ export default (theme: Theme) => ({
   cardContent: {
     color: theme.palette.secondary.main,
     backgroundColor: theme.palette.primary.main,
+    padding: `${theme.spacing(.6)}px`
   },
-  sellerNameContent: {
+  productDescription: {
     fontSize: theme.typography.fontSize / 1.2
   },
   cardAction: {
     color: theme.palette.secondary.main,
     backgroundColor: theme.palette.primary.main,
-    display: 'flex'
+    display: 'flex',
+    padding: `${theme.spacing(.6)}px`
   },
   priceContent: {
     flex: 1,

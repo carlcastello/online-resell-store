@@ -8,7 +8,7 @@ import Heading from '../../components/heading';
 import { HeadingSize } from '../../components/heading/enums';
 import SearchBar from '../../components/search-bar';
 import MainTitle from '../../components/main-title';
-import ItemCard from '../../components/item-card';
+import ProductCard from '../../components/product-card';
 
 import { OwnProps } from './types';
 import styles from './styles';
@@ -103,7 +103,7 @@ class Header extends Component<OwnProps> {
         <Grid container spacing={1}>
           {items.map((item: IProductCardDetail, index: number) => 
             <Grid item md={3} sm={6} xs={12} key={item.id}>
-              <ItemCard string={item}/>
+              <ProductCard string={item}/>
             </Grid>  
           )}
         </Grid>
