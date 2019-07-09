@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import NavBar from './components/nav-bar';
 import Home from './pages/home';
 import Product from './pages/product';
+import Products from './pages/products';
 import Footer from './components/footer';
 
 import AppTheme from './app-theme';
@@ -18,7 +19,7 @@ const App: React.FC = () => {
         <NavBar/>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/products" component={Home} />
+            <Route exact path="/products" component={Products} />
             <Route exact path="/product/:id" component={Product} />
           </Switch>
         <Footer/>
