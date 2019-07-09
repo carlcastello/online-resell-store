@@ -1,6 +1,6 @@
 import { ValueType } from "react-select/lib/types";
 
-export interface OwnProps {
+export interface IOwnProps {
   callback: (inputValue: string, selected: string[]) => void,
   strings: {
       placeHolder: string,
@@ -13,13 +13,17 @@ export interface OwnProps {
   }
 }
 
-export interface OwnState {
+export interface IOwnState {
   inputValue: string,
-  selected: ValueType<OptionType>,
+  selected: ValueType<IOptionType>,
   error: string
 }
 
-export interface OptionType {
+export interface IOptionType {
   value: string,
   label: string,
+}
+
+export interface IStyleProps {
+  fullwidth?: boolean,
 }
