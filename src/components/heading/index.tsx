@@ -1,25 +1,27 @@
 import React, {Component} from 'react'
 
-import { Card, CardContent } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles'
 
 import styles from './styles';
-import { OwnProps } from './types'
+import { IOwnProps, IStyleProps } from './types'
  
-class Heading extends Component<OwnProps> {
+class Heading extends Component<IOwnProps & IStyleProps> {
 
   renderCardContent = () => {
     const {
       children,
       classes: {
-        contentText
+        contentText,
+        contentTextContainer
       }
     } = this.props;
     if (children) {
       return (
-        <CardContent className={contentText}>
-          { this.props.children }
-        </CardContent>
+        <div className={contentTextContainer}>
+          <div className={contentText}>
+            { this.props.children }
+          </div>
+        </div>
       )
     }
   };
@@ -37,10 +39,10 @@ class Heading extends Component<OwnProps> {
  
   render(): React.ReactNode {
     return(
-      <Card className={this.props.classes.header}>
+      <div className={this.props.classes.header}>
         {this.renderMedia()}
         {this.renderCardContent()}
-      </Card>
+      </div>
     );
   } 
 }
