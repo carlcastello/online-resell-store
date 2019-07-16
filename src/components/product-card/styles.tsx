@@ -28,5 +28,8 @@ export default (theme: Theme) => ({
     '&:hover': {
       backgroundColor: theme.palette.primary.light,
     }
+  },
+  link: {
+    textDecoration: "none"
   }
 })

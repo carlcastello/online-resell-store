@@ -10,29 +10,29 @@ import {
   Button,
   CardActions
 } from '@material-ui/core';
+import { ShoppingCart } from '@material-ui/icons';
 
 import { PlaceHolderImage } from '../../images';
-
 import { IOwnProps } from './types';
 import styles from './styles';
-import { ShoppingCart } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 class ProductCard extends Component<IOwnProps> {
 
   static defaultProps = {
-    media: {
+    product: {
+      id: "",
       image: PlaceHolderImage,
-      title: 'Place Holder'
+      name: "",
+      sellerName: "",
+      price: "",
+      description: ""
     }
-  }
-
-  handleScrollEvent = (): void => {
-    console.log(window.scrollY);
   }
 
   renderProductDescription = (): ReactNode => {
     const {
-      string: {
+      product: {
         name,
         sellerName,
         description,
@@ -59,7 +59,7 @@ class ProductCard extends Component<IOwnProps> {
 
   renderProductAction = (): ReactNode => {
     const {
-      string: {
+      product: {
         price,
       },
       classes: {
@@ -81,36 +81,33 @@ class ProductCard extends Component<IOwnProps> {
     );
   }
 
-  
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollEvent);
-  }
-
   render(): ReactNode {
-    console.log(window.scrollY)
     const {
-      media: {
+      product: {
+        id,
         image: mediaImage,
-        title: mediaTitle
+        name: mediaTitle
       },
       classes: {
         cardMedia,
+        link
       }
     } = this.props;
     
     return (
-      <Card>
-        <CardActionArea>
-          <CardMedia
-            className={cardMedia}
-            image={mediaImage}
-            title={mediaTitle}
-          />
-          {this.renderProductDescription()}
-        </CardActionArea>
-        {this.renderProductAction()}
-      </Card>
+      <Link to={`product/${id}`} className={link}>
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              className={cardMedia}
+              image={mediaImage ? mediaImage : PlaceHolderImage}
+              title={mediaTitle}
+            />
+            {this.renderProductDescription()}
+          </CardActionArea>
+          {this.renderProductAction()}
+        </Card>
+      </Link>
     )
   }
 }
