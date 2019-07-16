@@ -2,12 +2,12 @@ import React, { Component, ReactNode } from 'react';
 
 import { withStyles, Typography } from '@material-ui/core';
 
-import { IOwnProps } from './types';
+import { IOwnProps, IStyleProps } from './types';
 import styles from './styles';
 
 
 
-class MainTitle extends Component<IOwnProps> {
+class MainTitle extends Component<IOwnProps & IStyleProps> {
   render(): ReactNode {
     const {
       title,
