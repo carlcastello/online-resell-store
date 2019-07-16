@@ -53,7 +53,7 @@ class Products extends Component<IOwnProps> {
       <Grid container spacing={1}>
         {featuredItems.map((item: IProductCardDetail, index: number) => 
           <Grid item sm={4} xs={12}>
-            <ProductCard string={item}/>
+            <ProductCard product={item}/>
           </Grid>
         )}
       </Grid>
