@@ -7,6 +7,7 @@ import Heading from '../../components/heading';
 import { HeadingSize } from '../../components/heading/enums';
 import SearchBar from '../../components/search-bar';
 import SideBar from '../../components/side-bar';
+import PreText from '../../components/pre-text';
 
 import styles from './styles';
 import { IOwnProps } from './types';
@@ -91,8 +92,7 @@ class Products extends Component<IOwnProps> {
   render(): ReactNode {
     const {
       classes: {
-        mainGrid,
-        searchFor
+        mainGrid
       }
     } = this.props;
     return (
@@ -103,9 +103,9 @@ class Products extends Component<IOwnProps> {
             {this.renderSideBar()}
           </Grid>
           <Grid item sm={12} md={9}>
-            <Typography className={searchFor}>
-              Hello World
-            </Typography>
+            <PreText>
+              Hello World 
+            </PreText>
             {this.renderProductList()}
           </Grid>
         </Grid>

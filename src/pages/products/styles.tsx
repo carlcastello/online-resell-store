@@ -6,7 +6,4 @@ export default (theme: Theme) => ({
     margin: '0px',
     padding: `${theme.spacing(2)}px 0px`
   },
-  searchFor: {
-    margin: `${theme.spacing(.5)}px 0px`
-  }
 })
