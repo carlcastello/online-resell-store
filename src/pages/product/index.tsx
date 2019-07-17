@@ -5,6 +5,9 @@ import {
   Grid,
 } from '@material-ui/core';
 
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
+
 import { PlaceHolderImage } from '../../images';
 
 import MainTitle from '../../components/main-title';
@@ -25,6 +28,25 @@ class Product extends Component<IOwnProps & IReduxProps> {
 
   }
 
+  renderDescriptionFooter = (): ReactNode => {
+    const {
+      classes: {
+        descriptionFooter,
+      }
+    } = this.props;
+
+    return (
+      <div className={descriptionFooter}>
+        <Typography variant='h3' color="primary">
+          $44.44
+        </Typography>
+        <Button padding={IPadding.MEDIUM} variant={IVariant.PRIMARY} icon='shoppingCart'>
+          Add To Cart
+        </Button>
+      </div>
+    );
+  }
+
   renderDescription = () => {
     const description = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum sodales est, eu porta odio dignissim quis. Aliquam erat volutpat. Curabitur non felis urna. Curabitur cursus accumsan sagittis.
@@ -35,32 +57,53 @@ class Product extends Component<IOwnProps & IReduxProps> {
     `
     const {
       classes: {
-        descriptionFooter,
         paragraph: paragraphStyle
       }
     } = this.props;
     return (
+      <div>
+        <MainTitle title="Featured Items" horizontalPadding={0}/>
+        {description.split('\n').map((paragraph) =>           
+          <Typography className={paragraphStyle}>
+            {paragraph}
+          </Typography>
+        )}
+        {this.renderDescriptionFooter()}
+      </div>
+    );
+  }
+
+  renderImageGallery = (): ReactNode => {
+    const images = [
+      {
+        original: 'http://lorempixel.com/1000/600/nature/1/',
+        thumbnail: 'http://lorempixel.com/250/150/nature/1/',
+      },
+      {
+        original: 'http://lorempixel.com/1000/600/nature/2/',
+        thumbnail: 'http://lorempixel.com/250/150/nature/2/'
+      },
+      {
+        original: 'http://lorempixel.com/1000/600/nature/3/',
+        thumbnail: 'http://lorempixel.com/250/150/nature/3/'
+      }
+    ]
+    return (
+      <ImageGallery items={images}/>
+    );
+  }
+
+  renderAbout = (): ReactNode => {
+    return (
       <Grid container spacing={1}>
         <Grid item sm={12} md={6}>
-        </Grid> 
+          {this.renderImageGallery()}
+        </Grid>
         <Grid item sm={12} md={6}>
-          <MainTitle title="Featured Items" horizontalPadding={0}/>
-          {description.split('\n').map((paragraph) =>           
-            <Typography className={paragraphStyle}>
-              {paragraph}
-            </Typography>
-          )}
-          <div className={descriptionFooter}>
-            <Typography variant='h3' color="primary">
-              $44.44
-            </Typography>
-            <Button padding={IPadding.MEDIUM} variant={IVariant.PRIMARY} icon='shoppingCart'>
-              Add To Cart
-            </Button>
-          </div>
+          {this.renderDescription()}
         </Grid>
       </Grid>
-    );
+    )
   }
 
   render(): ReactNode {
@@ -74,6 +117,7 @@ class Product extends Component<IOwnProps & IReduxProps> {
         <PreText>
           Hello World
         </PreText>
+        {this.renderAbout()}
         {this.renderDescription()}
         {this.renderAttributes()}
       </div>

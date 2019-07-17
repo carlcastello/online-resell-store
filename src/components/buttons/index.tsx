@@ -26,7 +26,7 @@ class MainButton extends Component<IOwnProps & IStyleProps> {
     } = this.props;
     if (variant === IVariant.PRIMARY) {
       return primaryContainer;
-    } else if (variant == IVariant.SECONDARY) {
+    } else if (variant === IVariant.SECONDARY) {
       return secondaryContainer;
     } else {
       return defaultContainer; 
