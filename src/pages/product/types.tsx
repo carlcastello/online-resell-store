@@ -3,7 +3,12 @@ export interface IOwnProps {
     params: {
       id: string,
     }
-  } 
+  },
+  classes: {
+    container: string,
+    descriptionFooter: string,
+    paragraph: string
+  }
 }
 
 export interface IReduxProps {

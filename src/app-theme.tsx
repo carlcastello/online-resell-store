@@ -62,7 +62,7 @@ export default createMuiTheme({
         'Amiko',
         'sans-serif'
       ].join(','),
-      fontWeight: 600,
+      fontWeight: 200,
       fontSize: '1.25rem'
     },
     fontFamily: [
