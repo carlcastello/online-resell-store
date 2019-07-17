@@ -95,7 +95,7 @@ class ProductCard extends Component<IOwnProps> {
     } = this.props;
     
     return (
-      <Link to={`product/${id}`} className={link}>
+      <Link to={`products/${id}`} className={link}>
         <Card>
           <CardActionArea>
             <CardMedia
