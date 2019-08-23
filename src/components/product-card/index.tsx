@@ -74,7 +74,6 @@ class ProductCard extends Component<IOwnProps> {
           {price}
         </Typography>
         <Button className={addToCartButton}>
-          Add to Cart
           <ShoppingCart/>
         </Button>
       </CardActions> 
