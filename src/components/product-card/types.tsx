@@ -1,14 +1,12 @@
 export interface IOwnProps {
-  media: {
+  product: {
+    id: string,
     image?: string,
-    title?: string
-  },
-  string: {
     name: string,
     sellerName: string,
     price: string,
-    description: string,
-  },
+    description: string,    
+  }
   classes: {
     cardMedia: string,
     cardContent: string,
@@ -16,5 +14,6 @@ export interface IOwnProps {
     cardAction: string,
     priceContent: string,
     addToCartButton: string,
+    link: string,
   }
 }

@@ -10,6 +10,14 @@ import { OwnProps } from './types';
 
 
 class NavBar extends Component<OwnProps> {
+  handleScrollEvent = (): void => {
+    console.log(window.scrollY);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScrollEvent);
+  }
+
   render(): React.ReactNode {
     const {
       classes: {

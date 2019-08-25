@@ -8,7 +8,8 @@ export default createMuiTheme({
     },
     secondary: {
       main: '#ffffff',
-      contrastText: '#1C0C4F'
+      contrastText: '#1C0C4F',
+      dark: '#f4f4f4'
     },
   },
   typography: {
@@ -29,7 +30,8 @@ export default createMuiTheme({
         'sans-serif'
       ].join(','),
       fontWeight: 600,
-      fontSize: '2.25rem'
+      fontSize: '2.25rem',
+      lineHeight: 1.1,
     },
     h3: {
       fontFamily: [
@@ -60,7 +62,7 @@ export default createMuiTheme({
         'Amiko',
         'sans-serif'
       ].join(','),
-      fontWeight: 600,
+      fontWeight: 200,
       fontSize: '1.25rem'
     },
     fontFamily: [

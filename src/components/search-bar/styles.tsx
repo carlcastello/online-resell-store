@@ -1,9 +1,11 @@
 import { Theme } from '@material-ui/core/styles';
 
+import { IStyleProps } from './types';
+
 export default (theme: Theme) => ({
   searchBarContainer: {
     display: 'flex',
-    width: '400px',
+    width: ((props: IStyleProps) => props.fullwidth? '100%': '400px') as unknown as string,
     border: `1px solid ${theme.palette.primary.main}`,
     margin: `${theme.spacing(.5)}px 0`
   },
@@ -13,6 +15,9 @@ export default (theme: Theme) => ({
       border: 'none !important',
       boxShadow: 'none !important'
     },
+    '& .select__menu': {
+      zIndex: 999
+    }
   },
   searchBarInput: {
     height: '100%',

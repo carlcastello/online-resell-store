@@ -1,13 +1,13 @@
 import { Theme } from '@material-ui/core/styles';
 
-import { StyleProps } from './types';
+import { IStyleProps } from './types';
 import { HeadingSize } from './enums';
 
 const styles = (theme: Theme) => ({
   header: {
     overflow: 'visible' as 'visible',
     position: 'relative' as 'relative',
-    height: ((props: StyleProps) => {
+    height: ((props: IStyleProps) => {
       switch(props.size) {
         case HeadingSize.LARGE:
           return "100vh";
@@ -23,22 +23,24 @@ const styles = (theme: Theme) => ({
     height: '100%',
     width: '100%',
   },
-  contentText: {
+  contentTextContainer: {
     position: 'absolute' as 'absolute',
-    bottom: ((props: StyleProps) =>  {
+    bottom: ((props: IStyleProps) =>  {
       switch(props.size) {
         case HeadingSize.LARGE:
-          return theme.spacing(3);
+          return theme.spacing(4);
         case HeadingSize.MEDIUM:
-          return theme.spacing(2);
+          return theme.spacing(3);
         case HeadingSize.SMALL:
         default:
-          return theme.spacing(1);
+          return theme.spacing(2);
       }
     }) as unknown as string,
-    left: theme.spacing(3),
-    padding: 0,
-    width: ((props: StyleProps) => {
+    left: `${theme.spacing(3)}px`,
+    right: `${theme.spacing(3)}px`,
+  },
+  contentText: {
+    width: ((props: IStyleProps) => {
       switch(props.size) {
         case HeadingSize.LARGE:
         case HeadingSize.MEDIUM:
@@ -48,6 +50,6 @@ const styles = (theme: Theme) => ({
           return '100%';
       }
     }) as unknown as string, 
-  },
+  }
 })
 export default styles;

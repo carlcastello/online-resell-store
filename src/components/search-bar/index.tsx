@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core';
 import { Search } from '@material-ui/icons'
 
 import styles from './styles'
-import { OwnProps, OptionType, OwnState } from './types';
+import { IOwnProps, IStyleProps, IOptionType, IOwnState } from './types';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -15,7 +15,7 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' }
 ]
 
-class SearchBar extends Component<OwnProps, OwnState> {
+class SearchBar extends Component<IOwnProps & IStyleProps, IOwnState> {
 
   state = {
     inputValue: '',
@@ -30,11 +30,11 @@ class SearchBar extends Component<OwnProps, OwnState> {
     } = this.state;
     this.props.callback(
       inputValue,
-      selected.map((select: OptionType) => select.value)
+      selected.map((select: IOptionType) => select.value)
     );
   }
 
-  handleOnChange = (selected: ValueType<OptionType>): void => 
+  handleOnChange = (selected: ValueType<IOptionType>): void => 
     this.setState({selected});
   
 
