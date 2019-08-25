@@ -5,3 +5,7 @@ export interface IProductCardDetail {
   price: string,
   description: string,
 }
+
+export interface ICartItem {
+  
+}
