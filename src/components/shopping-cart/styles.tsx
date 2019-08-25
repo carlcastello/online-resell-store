@@ -5,6 +5,10 @@ export default (theme: Theme) => ({
     position: 'relative' as 'relative'
   },
   menu: {
+    '& .MuiMenu-paper': {
+      width: '400px',
+      boxShadow: '2px 2px 4px #dbdbdb', 
+    }
     // '& .MuiMenu-paper': {
     //   right: theme.spacing(4)
     // }

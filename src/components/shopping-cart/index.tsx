@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEvent } from 'react';
 import {
   withStyles,
   IconButton,
   Menu,
   MenuItem,
-  Typography,
-  MenuList
+  Typography
 } from '@material-ui/core';
 import { ShoppingCart as ShoppingCartIcon }  from '@material-ui/icons';
 
@@ -26,18 +25,20 @@ const cartItems: ICartItem[] = [
 
 
 class ShoppingCart extends Component<IOwnProps, IOwnState> {
+  
+  iconRef: any;
 
   state = {
-    isOpen: false
+    isOpen: false,
   }
 
-  iconClickHandler = () => {
+  iconClickHandler = (event: MouseEvent): void => {
     this.setState((state: IOwnState) => ({
-      isOpen: !state.isOpen
+      isOpen: !state.isOpen,
     }));
   }
 
-  onCloseHandler = () => {
+  onCloseHandler = (): void => {
     this.setState({
       isOpen: false
     })
@@ -45,7 +46,9 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
 
   renderIconButton = () => {
     return (
-      <IconButton onClick={this.iconClickHandler}>
+      <IconButton
+        onClick={this.iconClickHandler}
+        ref={(ref) => { this.iconRef = ref; }}>
         <ShoppingCartIcon  color="primary"/>
       </IconButton>
     );
@@ -60,6 +63,9 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
         <MenuItem>
           <Typography>Avery</Typography>
         </MenuItem>
+        <div>
+          Proceed To CheckOut
+        </div>
       </div>
     );
   }
@@ -86,17 +92,11 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
           className={menu}
           onClose={this.onCloseHandler}
           open={this.state.isOpen}
-          elevation={0}
-          getContentAnchorEl={null}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
+          anchorEl={this.iconRef}
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          >
+            horizontal: 360,
+            vertical: 'top'
+          }}>
           {cartItems ? this.renderCartItems() :this.renderEmptyCart()}
         </Menu>
       </div>

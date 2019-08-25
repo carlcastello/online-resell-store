@@ -6,5 +6,5 @@ export interface IOwnProps {
 }
 
 export interface IOwnState {
-  isOpen: boolean
+  isOpen: boolean,
 }
