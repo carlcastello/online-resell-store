@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 
 import { Button, withStyles } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
+import { ShoppingCart, CreditCard } from '@material-ui/icons';
 
 import { IOwnProps, IVariant, IPadding, IStyleProps } from './types';
 import styles from './styles';
@@ -43,6 +43,8 @@ class MainButton extends Component<IOwnProps & IStyleProps> {
 
     if (icon === 'shoppingCart') {
       return <ShoppingCart className={iconStyle}/>
+    } else if (icon == 'creditCard') {
+      return <CreditCard className={iconStyle} />
     } else {
       return null;
     }

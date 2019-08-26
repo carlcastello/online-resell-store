@@ -8,8 +8,9 @@ import {
 } from '@material-ui/core';
 import { ShoppingCart as ShoppingCartIcon }  from '@material-ui/icons';
 
-
 import { ICartItem } from '../../common/types';
+
+import Button from '../buttons';
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
@@ -55,17 +56,46 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
   }
 
   renderCartItems = () => {
+    const cartItems = [
+      'Carl',
+      'Avery',
+      'Lorem',
+      'ipsum',
+      'dolor',
+      'sit',
+      'amet,',
+      'consectetur',
+      'adipiscing',
+      'elit.',
+      'Maecenas',
+      'interdum,',
+      'nulla',
+      'accumsan',
+      'pulvinar',
+      'congue,',
+      'nulla',
+      'risus',
+      'aliquam',
+      'nulla,',
+      'vel',
+      'eleifend',
+      'felis',
+      'nisi',
+      'vitae',
+      'augue'
+    ]
+    const {
+      classes: {
+        menuListContainer
+      }
+    } = this.props;
     return (
-      <div>
-        <MenuItem>
-          <Typography>Carl</Typography>
-        </MenuItem>
-        <MenuItem>
-          <Typography>Avery</Typography>
-        </MenuItem>
-        <div>
-          Proceed To CheckOut
-        </div>
+      <div className={menuListContainer}>
+        {cartItems.map((item: string) => 
+          <MenuItem>
+            <Typography>{item}</Typography>
+          </MenuItem>
+        )}
       </div>
     );
   }
@@ -80,7 +110,9 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
     const {
       classes: {
         menu,
-        container
+        container,
+        buttonContainer,
+        menuBottomBar
       }
     } = this.props;
 
@@ -98,6 +130,13 @@ class ShoppingCart extends Component<IOwnProps, IOwnState> {
             vertical: 'top'
           }}>
           {cartItems ? this.renderCartItems() :this.renderEmptyCart()}
+          <div className={menuBottomBar}>
+            <div className={buttonContainer}>
+              <Button icon="creditCard">
+                Checkout
+              </Button>
+            </div>
+          </div>
         </Menu>
       </div>
     )
