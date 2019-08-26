@@ -2,7 +2,8 @@ import { Theme } from "@material-ui/core";
 
 export default (theme: Theme) => ({
   container: {
-    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`
+    padding: `0 ${theme.spacing(3)}px ${theme.spacing(2)}px `,
+    paddingTop: 0,
   },
   paragraph: {
     marginBottom: theme.spacing(1)
