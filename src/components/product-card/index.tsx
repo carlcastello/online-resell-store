@@ -7,15 +7,17 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  Button,
   CardActions
 } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
 
 import { PlaceHolderImage } from '../../images';
+
+import Button from '../../components/buttons';
+
 import { IOwnProps } from './types';
 import styles from './styles';
 import { Link } from 'react-router-dom';
+import { IVariant } from '../buttons/types';
 
 class ProductCard extends Component<IOwnProps> {
 
@@ -65,7 +67,7 @@ class ProductCard extends Component<IOwnProps> {
       classes: {
         cardAction,
         priceContent,
-        addToCartButton
+        // addToCartButton
       }
     } = this.props;
     return (
@@ -73,9 +75,12 @@ class ProductCard extends Component<IOwnProps> {
         <Typography className={priceContent}>
           {price}
         </Typography>
-        <Button className={addToCartButton}>
-          <ShoppingCart/>
+        <Button variant={IVariant.SECONDARY}> 
+          Add To Cart
         </Button>
+        {/* <Button className={addToCartButton}>
+          <ShoppingCart/>
+        </Button> */}
       </CardActions> 
     );
   }
