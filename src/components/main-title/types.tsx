@@ -5,3 +5,7 @@ export interface IOwnProps {
     underline: string,
   }
 }
+
+export interface IStyleProps {
+  horizontalPadding?: number
+}

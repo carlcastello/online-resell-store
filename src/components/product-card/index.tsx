@@ -7,32 +7,34 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  Button,
   CardActions
 } from '@material-ui/core';
 
 import { PlaceHolderImage } from '../../images';
 
+import Button from '../../components/buttons';
+
 import { IOwnProps } from './types';
 import styles from './styles';
-import { ShoppingCart } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+import { IVariant } from '../buttons/types';
 
 class ProductCard extends Component<IOwnProps> {
 
   static defaultProps = {
-    media: {
+    product: {
+      id: "",
       image: PlaceHolderImage,
-      title: 'Place Holder'
+      name: "",
+      sellerName: "",
+      price: "",
+      description: ""
     }
-  }
-
-  handleScrollEvent = (): void => {
-    console.log(window.scrollY);
   }
 
   renderProductDescription = (): ReactNode => {
     const {
-      string: {
+      product: {
         name,
         sellerName,
         description,
@@ -59,13 +61,13 @@ class ProductCard extends Component<IOwnProps> {
 
   renderProductAction = (): ReactNode => {
     const {
-      string: {
+      product: {
         price,
       },
       classes: {
         cardAction,
         priceContent,
-        addToCartButton
+        // addToCartButton
       }
     } = this.props;
     return (
@@ -73,44 +75,43 @@ class ProductCard extends Component<IOwnProps> {
         <Typography className={priceContent}>
           {price}
         </Typography>
-        <Button className={addToCartButton}>
-          Add to Cart
-          <ShoppingCart/>
+        <Button variant={IVariant.SECONDARY}> 
+          Add To Cart
         </Button>
+        {/* <Button className={addToCartButton}>
+          <ShoppingCart/>
+        </Button> */}
       </CardActions> 
     );
   }
 
-  
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollEvent);
-  }
-
   render(): ReactNode {
-    console.log(window.scrollY)
     const {
-      media: {
+      product: {
+        id,
         image: mediaImage,
-        title: mediaTitle
+        name: mediaTitle
       },
       classes: {
         cardMedia,
+        link
       }
     } = this.props;
     
     return (
-      <Card>
-        <CardActionArea>
-          <CardMedia
-            className={cardMedia}
-            image={mediaImage}
-            title={mediaTitle}
-          />
-          {this.renderProductDescription()}
-        </CardActionArea>
-        {this.renderProductAction()}
-      </Card>
+      <Link to={`products/${id}`} className={link}>
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              className={cardMedia}
+              image={mediaImage ? mediaImage : PlaceHolderImage}
+              title={mediaTitle}
+            />
+            {this.renderProductDescription()}
+          </CardActionArea>
+          {this.renderProductAction()}
+        </Card>
+      </Link>
     )
   }
 }

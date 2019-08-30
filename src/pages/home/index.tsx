@@ -103,7 +103,7 @@ class Header extends Component<OwnProps> {
         <Grid container spacing={1}>
           {items.map((item: IProductCardDetail, index: number) => 
             <Grid item md={3} sm={6} xs={12} key={item.id}>
-              <ProductCard string={item}/>
+              <ProductCard product={item}/>
             </Grid>  
           )}
         </Grid>
