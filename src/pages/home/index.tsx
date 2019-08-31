@@ -12,7 +12,6 @@ import ProductCard from '../../components/product-card';
 
 import { OwnProps } from './types';
 import styles from './styles';
-import cartItem from '../../components/cart-item';
 
 
 const featuredItems = [
@@ -118,7 +117,6 @@ class Header extends Component<OwnProps> {
         <MainTitle title="Featured Items"/>
         {this.renderFeaturedItems(featuredItems)}
         <MainTitle title="New Items"/>
-        <cartItem></cartItem>
         {this.renderFeaturedItems(newItems)}
       </div>
     );
