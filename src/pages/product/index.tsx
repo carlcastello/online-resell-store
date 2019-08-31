@@ -81,8 +81,8 @@ class Product extends Component<IOwnProps & IReduxProps> {
     return (
       <div>
         <MainTitle title="Featured Items" horizontalPadding={0}/>
-        {description.split('\n').map((paragraph) =>           
-          <Typography className={paragraphStyle}>
+        {description.split('\n').map((paragraph, index) =>           
+          <Typography className={paragraphStyle} key={index}>
             {paragraph}
           </Typography>
         )}
