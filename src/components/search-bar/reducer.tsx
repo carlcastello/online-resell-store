@@ -1,7 +1,9 @@
 import createReducers from '../../common/reducer';
-
-const apple = () =>  'Apple is disgusting.';
+import { any } from 'prop-types';
 
 export default createReducers([], {
-  'apple': apple,
+  'apple': (state: any, action: any) => {
+    console.log(state, action);
+    return state;
+  },
 });
