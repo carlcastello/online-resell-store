@@ -12,6 +12,7 @@
     "@types/react-image-gallery": "^0.8.4",
     "@types/react-router-dom": "^4.3.4",
     "@types/react-select": "^2.0.19",
+    "@types/redux": "^3.6.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-image-gallery": "^0.8.18",
