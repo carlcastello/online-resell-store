@@ -30,7 +30,7 @@ class SearchBar extends Component<IOwnProps &
     inputValue: '',
     selected: [],
     error: ''
-  }
+  } 
 
   onSubmit = (): void => {
     const {
@@ -49,6 +49,11 @@ class SearchBar extends Component<IOwnProps &
 
   handleOnInputChange = (inputValue: string): void => 
     this.setState({inputValue})
+
+
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
 
   render(): React.ReactNode {
     const {

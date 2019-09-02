@@ -20,7 +20,7 @@ export interface IOwnState {
 }
 
 export interface IReduxProps {
-  'fetchCategories': () => void;
+  fetchCategories: () => void;
 }
 
 export interface IOptionType {
