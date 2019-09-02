@@ -1,5 +1,5 @@
 export interface IOwnProps {
-  title: string,
+  children: string,
   classes: {
     container: string,
     underline: string,
