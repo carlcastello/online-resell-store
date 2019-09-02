@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { createStore } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { createStore, applyMiddleware  } from 'redux'
 import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@material-ui/styles';
@@ -17,7 +18,7 @@ import AppTheme from './app-theme';
 
 const App: React.FC = () => {
   return (
-    <Provider store={createStore(MainReducer)}>
+    <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
       <Router>
         <ThemeProvider theme={AppTheme}>
           <NavBar/>
