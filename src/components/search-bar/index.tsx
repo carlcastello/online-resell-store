@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchCategories } from './action';
+import { fetchCategories } from './actions';
 
 import SearchBar from './component';
 

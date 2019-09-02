@@ -1,9 +1,15 @@
 import createReducers from '../../common/reducer';
-import { any } from 'prop-types';
 
-export default createReducers([], {
-  'apple': (state: any, action: any) => {
-    console.log(state, action);
-    return state;
+import { FETCH_CATEGORIES } from './actions';
+
+
+const initialStore = {};
+
+export default createReducers(initialStore, {
+  [FETCH_CATEGORIES]: (state: Object, payload: string) => {
+    return ({
+      ...state,
+      categories: payload
+    });
   },
 });
