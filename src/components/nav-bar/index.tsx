@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 
 import { withStyles } from "@material-ui/styles";
-import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
-import { ShoppingCart } from '@material-ui/icons';
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
+
+import ShoppingCart from "../shopping-cart";
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types'; 
+
 
 class NavBar extends Component<IOwnProps, IOwnState> {
 
@@ -53,9 +55,7 @@ class NavBar extends Component<IOwnProps, IOwnState> {
             THRIFT.ca
           </Typography>
           <div>
-            <IconButton >
-              <ShoppingCart color="primary"/>
-            </IconButton>
+            <ShoppingCart />
           </div>
         </Toolbar>
       </AppBar>
