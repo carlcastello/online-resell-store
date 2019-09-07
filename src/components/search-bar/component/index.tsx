@@ -15,11 +15,6 @@ import {
   IReduxProps
 } from './types';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
 
 class SearchBar extends Component<IOwnProps &
                                   IReduxProps &
@@ -52,11 +47,19 @@ class SearchBar extends Component<IOwnProps &
 
 
   componentDidMount() {
-    this.props.fetchCategories();
+    const {
+      categories,
+      fetchCategories
+    } = this.props;
+    if (!categories) {
+      fetchCategories();
+    }
+
   }
 
   render(): React.ReactNode {
     const {
+      categories,
       strings: {
         placeHolder,
       },
@@ -75,7 +78,7 @@ class SearchBar extends Component<IOwnProps &
           isMulti
           placeholder={placeHolder}
           closeMenuOnSelect={false}
-          options={options}
+          options={categories}
           onChange={this.handleOnChange}
           onInputChange={this.handleOnInputChange}
         />
