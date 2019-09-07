@@ -10,16 +10,16 @@ import styles from './styles';
 class MainTitle extends Component<IOwnProps & IStyleProps> {
   render(): ReactNode {
     const {
-      title,
       classes: {
         container,
         underline
-      }
+      },
+      children
     } = this.props;
     return(
       <div className={container}>
         <Typography variant="h5" color="primary">
-          {title}
+          {children}
         </Typography>
         <hr className={underline}/>
       </div>

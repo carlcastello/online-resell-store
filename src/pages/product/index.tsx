@@ -80,7 +80,9 @@ class Product extends Component<IOwnProps & IReduxProps> {
     } = this.props;
     return (
       <div>
-        <MainTitle title="Featured Items" horizontalPadding={0}/>
+        <MainTitle horizontalPadding={0}>
+          Featured Items
+        </MainTitle>
         {description.split('\n').map((paragraph, index) =>           
           <Typography className={paragraphStyle} key={index}>
             {paragraph}
@@ -193,9 +195,13 @@ class Product extends Component<IOwnProps & IReduxProps> {
             Hello World
           </PreText>
           {this.renderMainInfo()}
-          <MainTitle title="Some Info" horizontalPadding={0}/>
+          <MainTitle horizontalPadding={0}>
+            Some Info
+          </MainTitle>
           {this.renderExtraInfo()}
-          <MainTitle title="Related Items" horizontalPadding={0}/>
+          <MainTitle horizontalPadding={0}>
+            Related Items
+          </MainTitle>
           {this.renderRelatedItems()}
         </div>
       </div>
