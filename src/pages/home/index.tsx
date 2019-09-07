@@ -114,9 +114,13 @@ class Header extends Component<OwnProps> {
   renderBody = (): ReactNode => {
     return (
       <div>
-        <MainTitle title="Featured Items"/>
+        <MainTitle>
+          Featured Items
+        </MainTitle>
         {this.renderFeaturedItems(featuredItems)}
-        <MainTitle title="New Items"/>
+        <MainTitle>
+          New Items
+        </MainTitle>
         {this.renderFeaturedItems(newItems)}
       </div>
     );

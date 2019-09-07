@@ -1,6 +1,12 @@
-export interface OwnProps {
+export interface IOwnProps {
   classes: {
-    appBar: string,
-    logo: string,
+    transparentAppBar: string,
+    solidAppBar: string,
+    transparentLogo: string,
+    solidLogo: string,
   }
+}
+
+export interface IOwnState {
+  isTransparent: boolean
 }

@@ -13,6 +13,9 @@ import MainTitle from '../../components/main-title';
 import PreText from '../../components/pre-text';
 import Button from '../../components/buttons';
 import ProductCard from '../../components/product-card';
+import Heading from '../../components/heading';
+import { HeadingSize } from '../../components/heading/enums';
+import SearchBar from '../../components/search-bar';
 import { IVariant, IPadding } from '../../components/buttons/types';
 
 import { IOwnProps, IReduxProps } from './types';
@@ -20,9 +23,19 @@ import styles from './styles';
 
 class Product extends Component<IOwnProps & IReduxProps> {
 
-  componentDidMount() {
-    console.log(this.props.match.params.id);
+  handleSearchBarCallBack = (inputValues: string, selectedValues: string[]) => {
+    console.log(inputValues, selectedValues);
   }
+
+  renderHeader = (): ReactNode => (
+    <Heading size={HeadingSize.SMALL}>
+      <SearchBar
+        callback={this.handleSearchBarCallBack}
+        strings={{placeHolder: "Search..."}}
+        fullwidth
+      />
+    </Heading>
+  )
 
   renderExtraInfo = () => {
     return (
@@ -67,9 +80,11 @@ class Product extends Component<IOwnProps & IReduxProps> {
     } = this.props;
     return (
       <div>
-        <MainTitle title="Featured Items" horizontalPadding={0}/>
-        {description.split('\n').map((paragraph) =>           
-          <Typography className={paragraphStyle}>
+        <MainTitle horizontalPadding={0}>
+          Featured Items
+        </MainTitle>
+        {description.split('\n').map((paragraph, index) =>           
+          <Typography className={paragraphStyle} key={index}>
             {paragraph}
           </Typography>
         )}
@@ -173,15 +188,22 @@ class Product extends Component<IOwnProps & IReduxProps> {
       }
     } = this.props;
     return(
-      <div className={container}>
-        <PreText>
-          Hello World
-        </PreText>
-        {this.renderMainInfo()}
-        <MainTitle title="Some Info" horizontalPadding={0}/>
-        {this.renderExtraInfo()}
-        <MainTitle title="Related Items" horizontalPadding={0}/>
-        {this.renderRelatedItems()}
+      <div>
+        {this.renderHeader()}
+        <div className={container}>
+          <PreText>
+            Hello World
+          </PreText>
+          {this.renderMainInfo()}
+          <MainTitle horizontalPadding={0}>
+            Some Info
+          </MainTitle>
+          {this.renderExtraInfo()}
+          <MainTitle horizontalPadding={0}>
+            Related Items
+          </MainTitle>
+          {this.renderRelatedItems()}
+        </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { Typography, Grid, withStyles } from '@material-ui/core';
+import { Grid, withStyles } from '@material-ui/core';
 
 import { IProductCardDetail } from '../../common/types';
 import ProductCard from '../../components/product-card';

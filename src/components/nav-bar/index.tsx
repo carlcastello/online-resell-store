@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 
 import { withStyles } from "@material-ui/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
@@ -6,29 +7,51 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import ShoppingCart from "../shopping-cart";
 
 import styles from './styles';
-import { OwnProps } from './types'; 
+import { IOwnProps, IOwnState } from './types'; 
 
 
-class NavBar extends Component<OwnProps> {
-  handleScrollEvent = (): void => {
-    console.log(window.scrollY);
+class NavBar extends Component<IOwnProps, IOwnState> {
+
+  state = {
+    isTransparent: true
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollEvent);
+  handleScrollEvent = (height: number) => (): void => {
+    if (window.scrollY < height) {
+      this.setState({isTransparent: true});
+    } else {
+      this.setState({isTransparent: false});
+    }
+  }
+
+  componentDidMount(): void {
+    const DOMNode: any = ReactDOM.findDOMNode(this); 
+    if (DOMNode) {
+      window.addEventListener(
+        'scroll',
+        this.handleScrollEvent(DOMNode.offsetHeight)
+      );
+    }
   }
 
   render(): React.ReactNode {
     const {
       classes: {
-        appBar: appBarStyles,
-        logo: logoStyles
+        transparentAppBar,
+        solidAppBar,
+        transparentLogo,
+        solidLogo,
       }
     } = this.props; 
     return(
-      <AppBar className={appBarStyles}>
+      <AppBar className={this.state.isTransparent ? transparentAppBar : solidAppBar}>
         <Toolbar >
-          <Typography variant="h5" color="inherit" className={logoStyles}>
+          <Typography
+            variant="h5"
+            color="inherit"
+            className={
+              this.state.isTransparent ? transparentLogo : solidLogo
+            }>
             THRIFT.ca
           </Typography>
           <div>
