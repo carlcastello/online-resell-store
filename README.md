@@ -3,9 +3,9 @@
 A sandbox react environment I created as a place to learn and experiment with react libraries
 
 ## Contributor
-    - **Avery Tan** - (https://github.com/edgelord9ooo)[https://github.com/edgelord9ooo]
-    - **Leo Yoon** - (https://github.com/leoyoon17)[https://github.com/leoyoon17]
-    - **Carl Castello** -(https://github.com/carlcastello)[https://github.com/carlcastello]
+    - **Avery Tan** - [https://github.com/edgelord9ooo](https://github.com/edgelord9ooo)
+    - **Leo Yoon** - [https://github.com/leoyoon17](https://github.com/leoyoon17)
+    - **Carl Castello** - [https://github.com/carlcastello](https://github.com/carlcastello)
 
 ## System Installation
 
