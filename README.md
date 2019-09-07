@@ -2,6 +2,11 @@
 
 A sandbox react environment I created as a place to learn and experiment with react libraries
 
+## Contributor
+    - **Avery Tan** - https://github.com/edgelord9ooo
+    - **Leo Yoon** - https://github.com/leoyoon17
+    - **Carl Castello** - https://github.com/carlcastello
+
 ## System Installation
 
 1. Node Version Manager (optional). [Unix Based Systems](https://github.com/nvm-sh/nvm), [Windows](https://github.com/coreybutler/nvm-windows)
@@ -27,4 +32,4 @@ A sandbox react environment I created as a place to learn and experiment with re
     - React Material UI (UI Framework) 
     - React Redux (For state management)
     - React Redux Thunk (For complex synchronous actions)
-    - React Router Dom 
+    - React Router Dom
