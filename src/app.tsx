@@ -7,6 +7,7 @@ import NavBar from './components/nav-bar';
 import Home from './pages/home';
 import Product from './pages/product';
 import Products from './pages/products';
+import Checkout from './pages/checkout';
 import Footer from './components/footer';
 
 import AppTheme from './app-theme';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/products" component={Products} />
             <Route exact path="/products/:id" component={Product} />
+            <Route exact path="/checkout" component={Checkout} />
           </Switch>
         <Footer/>
       </ThemeProvider>
