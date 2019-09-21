@@ -7,18 +7,5 @@ export default (theme: Theme) => ({
   },
   contentContainer: {
     
-  },
-  formControl: {
-    width: '100%',
-    marginBottom: `${theme.spacing(1.5)}px`
-  },
-  formInput: {
-    fontSize: `${theme.spacing(1.5)}px`
-  },
-  formLabel: {
-    fontSize: `${theme.spacing(1.5)}px`,
-    '&.MuiInputLabel-shrink': {
-      fontSize: `${theme.spacing(1)}px`
-    }
   }
 });

@@ -2,14 +2,8 @@ import React, { Component, ReactNode } from 'react';
 
 import {
   withStyles,
-  Typography,
   Grid,
-  FormControl,
-  Input,
-  InputLabel,
-  FormHelperText,
   Card,
-  CardActions,
   CardContent 
 } from '@material-ui/core';
 
@@ -20,7 +14,7 @@ import SearchBar from '../../components/search-bar';
 import PreText from '../../components/pre-text';
 import ProductCard from '../../components/product-card';
 import MainTitle from '../../components/main-title';
-import Buttons from '../../components/buttons';
+import Form from '../../components/form';
 
 import { IOwnProps } from './types';
 import styles from './styles';
@@ -52,14 +46,14 @@ class Checkout extends Component<IOwnProps> {
           Shopping Cart
         </MainTitle>
         <Grid container spacing={1}>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Card>
               <CardContent>
                 Hello
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Card>
               <CardContent>
                 Hello
@@ -72,46 +66,29 @@ class Checkout extends Component<IOwnProps> {
   }
 
   renderCheckoutForm = (): ReactNode => {
-    const {
-      classes: {
-        contentContainer,
-        formControl,
-        formInput,
-        formLabel
-      }
-    } = this.props;
     return (
-      <div className={contentContainer}>
+      <div>
         <MainTitle horizontalPadding={0}>
           Checkout
         </MainTitle>
-        <FormControl className={formControl} required>
-          <InputLabel className={formLabel} htmlFor="name">Full Name</InputLabel>
-          <Input className={formInput} id="name"/>
-        </FormControl>
-        <FormControl className={formControl} required>
-          <InputLabel className={formLabel}  htmlFor="email">Email</InputLabel>
-          <Input className={formInput} id="email"/>
-        </FormControl>
-        <FormControl className={formControl} required>
-          <InputLabel className={formLabel} htmlFor="phone-number">Phone Number</InputLabel>
-          <Input className={formInput} id="phone-numer"/>
-        </FormControl>
-        <Buttons>
-          Order
-        </Buttons>
+        <Form fields={[
+          {id: 'full-name', label: 'Full Name', type: 'text', required: true},
+          {id: 'email', label: 'Email', type: 'email', required: true},
+          {id: 'phone-number', label: 'Phone Number', type: 'text', required: true}
+        ]}>
+        </Form>
       </div>
     );
   }
 
   renderMainContent = (): ReactNode => {
     return (
-      <Grid container spacing={1}>
-        <Grid item sm={8} xs={12}>
-          {this.renderCart()}
-        </Grid> 
-        <Grid item sm={4} xs={12}>
+      <Grid container spacing={2}>
+        <Grid item md={4} sm={5} xs={12}>
           {this.renderCheckoutForm()}
+        </Grid> 
+        <Grid item md={8} sm={7} xs={12}>
+          {this.renderCart()}
         </Grid> 
       </Grid> 
     );
