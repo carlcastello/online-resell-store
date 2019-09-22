@@ -2,7 +2,7 @@ import React, { Component, ReactNode} from 'react';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 
 import NavBar from '../../components/nav-bar';
 import Home from '../../pages/home';
@@ -15,7 +15,7 @@ import { IReduxProps } from './types';
 class Router extends Component<IReduxProps> {
 
   renderPage = (): ReactNode => (
-    <BrowserRouter>
+    <Box>
       <NavBar/>
       <Switch>
         <Route exact path="/" component={Home} />
@@ -23,7 +23,7 @@ class Router extends Component<IReduxProps> {
         <Route exact path="/products/:id" component={Product} />
       </Switch>
       <Footer/>
-    </BrowserRouter>    
+    </Box>
   )
 
   renderLoading = (): ReactNode => (
@@ -36,7 +36,11 @@ class Router extends Component<IReduxProps> {
     const {
       isPageLoading
     } = this.props;
-    return isPageLoading ? this.renderLoading() : this.renderPage();
+    return (
+      <BrowserRouter>
+        {isPageLoading ? this.renderLoading() : this.renderPage()}
+      </BrowserRouter>    
+    );
   }
 }
 

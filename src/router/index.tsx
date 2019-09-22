@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import Router from './component';
 import { IReduxStore } from '../store/types';
 
+import { isFullPageLoading } from '../common/selectors';
 
 const mapStateToProps = (state: IReduxStore) => ({
-  isPageLoading: state.page.isPageLoading,
+  isPageLoading: isFullPageLoading(state)
 });
 
 const mapDispatchToProps = {
