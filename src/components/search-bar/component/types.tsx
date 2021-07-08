@@ -19,6 +19,11 @@ export interface IOwnState {
   error: string
 }
 
+export interface IReduxProps {
+  categories: IOptionType[],
+  fetchCategories: () => void;
+}
+
 export interface IOptionType {
   value: string,
   label: string,

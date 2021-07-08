@@ -1,30 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import thunkMiddleware from 'redux-thunk'
+import { createStore, applyMiddleware  } from 'redux'
+import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@material-ui/styles';
 
-import NavBar from './components/nav-bar';
-import Home from './pages/home';
-import Product from './pages/product';
-import Products from './pages/products';
-import Footer from './components/footer';
-
+import Pages from './router';
+import MainReducer from './store/reducer';
 import AppTheme from './app-theme';
 
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
       <ThemeProvider theme={AppTheme}>
-        <NavBar/>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/products" component={Products} />
-            <Route exact path="/products/:id" component={Product} />
-          </Switch>
-        <Footer/>
-      </ThemeProvider>
-    </Router>
+        <Pages/>
+      </ThemeProvider>  
+    </Provider>
   );
 }
 
